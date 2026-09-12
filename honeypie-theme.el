@@ -1,7 +1,7 @@
 ;;; honeypie-theme.el --- Warm amber CRT-inspired Emacs theme -*- lexical-binding: t; -*-
 
 ;; Author: vmargb
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, themes, colors, terminals
 ;; URL: https://github.com/vmargb/honeypie
@@ -54,7 +54,55 @@
        (blue      "#5A6F89")
        (purple    "#765F7A"))
 
-  )
+  (custom-theme-set-faces
+   'honeypie
+
+   ;; main UI
+   `(default ((,class (:background ,bg-0 :foreground ,fg-0))))
+   `(cursor ((,class (:background ,amber-4))))
+   `(fringe ((,class (:background ,bg-1 :foreground ,fg-3))))
+   `(vertical-border ((,class (:foreground ,fg-3))))
+   `(header-line ((,class (:background ,bg-1 :foreground ,fg-1
+                                        :box nil))))
+   `(mode-line ((,class (:background ,bg-1 :foreground ,fg-0
+                                     :box nil :weight bold))))
+   `(mode-line-inactive ((,class (:background ,bg-1 :foreground ,fg-2
+                                               :box nil))))
+
+   ;; selection
+   `(region ((,class (:background ,bg-2 :foreground ,brown-2))))
+   `(highlight ((,class (:background ,bg-1))))
+   `(hl-line ((,class (:background ,bg-1))))
+
+   ;; Minibuffer / search
+   `(minibuffer-prompt ((,class (:foreground ,amber-4 :weight bold))))
+   `(isearch ((,class (:background ,amber-2 :foreground ,brown-2
+                                   :weight bold))))
+   `(lazy-highlight ((,class (:background ,bg-2 :foreground ,fg-0))))
+
+   ;; font-lock
+   `(font-lock-comment-face ((,class (:foreground ,fg-2 :slant italic))))
+   `(font-lock-keyword-face ((,class (:foreground ,amber-4 :weight bold))))
+   `(font-lock-function-name-face ((,class (:foreground ,copper-1 :weight bold))))
+   `(font-lock-variable-name-face ((,class (:foreground ,fg-0))))
+   `(font-lock-type-face ((,class (:foreground ,blue))))
+   `(font-lock-constant-face ((,class (:foreground ,purple))))
+   `(font-lock-string-face ((,class (:foreground ,green))))
+   `(font-lock-builtin-face ((,class (:foreground ,teal))))
+   `(font-lock-warning-face ((,class (:foreground ,orange :weight bold))))
+
+   ;; diagnostics
+   `(error ((,class (:foreground ,red :weight bold))))
+   `(warning ((,class (:foreground ,orange :weight bold))))
+   `(success ((,class (:foreground ,green :weight bold))))
+
+   ;; links and buttons
+   `(link ((,class (:foreground ,teal :underline t))))
+   `(button ((,class (:foreground ,teal :underline t))))
+
+   ;; generic emphasis
+   `(bold ((,class (:weight bold))))
+   `(italic ((,class (:slant italic))))))
 
 ;;;###autoload
 (provide-theme 'honeypie)
